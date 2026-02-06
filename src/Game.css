@@ -1,0 +1,695 @@
+/* 
+  ============================================
+  📚 STYLES POUR LE JEU
+  ============================================
+*/
+
+.game {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 80vh;
+}
+
+/* ============================================
+   MENU PRINCIPAL - Style Gaming
+   ============================================ */
+
+.menu-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.menu-container {
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+.game-logo h1 {
+  font-size: 6rem;
+  font-weight: 900;
+  letter-spacing: 1rem;
+  margin: 0;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.logo-subtitle {
+  font-size: 2rem;
+  letter-spacing: 0.8rem;
+  color: #7f8c8d;
+  margin-top: -10px;
+  font-weight: 300;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 10px rgba(44, 62, 80, 0.5)); }
+  to { filter: drop-shadow(0 0 20px rgba(44, 62, 80, 0.8)); }
+}
+
+.menu-buttons {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu-btn {
+  width: 400px;
+  padding: 20px 40px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.menu-btn:hover::before {
+  left: 100%;
+}
+
+.menu-btn.primary {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+}
+
+.menu-btn.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(44, 62, 80, 0.6);
+}
+
+.menu-btn.secondary {
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  color: white;
+  box-shadow: 0 6px 20px rgba(127, 140, 141, 0.3);
+}
+
+.menu-btn.secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(127, 140, 141, 0.5);
+}
+
+.btn-icon {
+  font-size: 1.5rem;
+}
+
+.menu-footer {
+  margin-top: 80px;
+  color: #95a5a6;
+  font-size: 0.9rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   PLAYING SCREEN
+   ============================================ */
+
+.playing-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   ÉCRAN OPTIONS
+   ============================================ */
+
+.options-screen,
+.leaderboard-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.options-container,
+.leaderboard-container {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease;
+}
+
+.options-container h1,
+.leaderboard-container h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0 0 40px 0;
+  color: #2c3e50;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+.options-section {
+  margin-bottom: 40px;
+}
+
+.options-section h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.difficulty-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.difficulty-btn {
+  padding: 20px;
+  border: 3px solid #e0e0e0;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.difficulty-btn:hover {
+  border-color: #2c3e50;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(44, 62, 80, 0.2);
+}
+
+.difficulty-btn.active {
+  border-color: #2c3e50;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3);
+}
+
+.diff-icon {
+  font-size: 2rem;
+}
+
+.diff-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.diff-desc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.setting-item:hover {
+  background: #ececec;
+}
+
+.setting-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.toggle-btn {
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  background: #bdc3c7;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+  background: #2c3e50;
+}
+
+.toggle-switch {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  top: 3px;
+  left: 3px;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.active .toggle-switch {
+  left: 33px;
+}
+
+.back-btn {
+  width: 100%;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(127, 140, 141, 0.4);
+}
+
+/* ============================================
+   ÉCRAN CLASSEMENT
+   ============================================ */
+
+.leaderboard-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #7f8c8d;
+}
+
+.tab-btn:hover {
+  border-color: #2c3e50;
+}
+
+.tab-btn.active {
+  border-color: #2c3e50;
+  background: #2c3e50;
+  color: white;
+}
+
+.scores-list {
+  min-height: 300px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.score-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.score-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.score-rank {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #2c3e50;
+  min-width: 50px;
+}
+
+.score-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #34495e;
+  flex: 1;
+}
+
+.score-date {
+  font-size: 0.9rem;
+  color: #95a5a6;
+}
+
+.no-scores {
+  text-align: center;
+  padding: 60px 20px;
+  color: #95a5a6;
+}
+
+.no-scores p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.no-scores-hint {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* ============================================
+   GAME HEADER
+   ============================================ */
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.game-header h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.game-stats {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(44, 62, 80, 0.1);
+  border-radius: 8px;
+  min-width: 80px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.btn-back {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #2c3e50;
+  color: #2c3e50;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-back:hover {
+  background: #2c3e50;
+  color: white;
+  transform: translateX(-5px);
+}
+
+/* ============================================
+   GRILLE DE CARTES - Responsive
+   ============================================ */
+
+.cards-grid {
+  display: grid;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 400px;
+  grid-auto-rows: minmax(100px, 1fr);
+}
+
+/* Grille selon la difficulté */
+.cards-grid.difficulty-easy {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 600px;
+}
+
+.cards-grid.difficulty-normal {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 800px;
+}
+
+.cards-grid.difficulty-hard {
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 1200px;
+}
+
+/* ============================================
+   ÉCRAN DE VICTOIRE
+   ============================================ */
+
+.victory-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+.victory-message {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 60px 80px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: scaleIn 0.5s ease;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.victory-message h2 {
+  margin: 0 0 20px 0;
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+.victory-score {
+  font-size: 1.5rem;
+  margin: 20px 0 40px 0;
+  color: #ecf0f1;
+  font-weight: 300;
+}
+
+.victory-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.victory-btn {
+  padding: 15px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.victory-btn.primary {
+  background: white;
+  color: #2c3e50;
+}
+
+.victory-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+.victory-btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid white;
+}
+
+.victory-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .game-logo h1 {
+    font-size: 4rem;
+    letter-spacing: 0.5rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+  }
+  
+  .menu-btn {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .game-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .game-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .stat-item {
+    padding: 8px 15px;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 100%;
+  }
+  
+  .victory-message {
+    padding: 40px 30px;
+    margin: 20px;
+  }
+  
+  .victory-message h2 {
+    font-size: 2.5rem;
+  }
+  
+  .victory-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .victory-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-logo h1 {
+    font-size: 3rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .menu-btn {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+  }
+  
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .victory-message {
+    padding: 30px 20px;
+  }
+  
+  .victory-message h2 {
+    font-size: 2rem;
+  }
+}
